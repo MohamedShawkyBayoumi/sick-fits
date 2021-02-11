@@ -5,6 +5,8 @@ backend/node_modules/
 *.log
 haters/
 .next/
+.keystone/
+.env
 .build/
 layout.md
 variables.env
