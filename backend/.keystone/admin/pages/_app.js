@@ -4,9 +4,14 @@ import { KeystoneProvider } from '@keystone-next/admin-ui/context';
 import { ErrorBoundary } from '@keystone-next/admin-ui/components';
 import { Core } from '@keystone-ui/core';
 
+import * as viewfc930beb from '../../../node_modules/@keystone-next/fields/types/mongoId/views';
+import * as view98a2b266 from '../../../node_modules/@keystone-next/fields/types/text/views';
+import * as view3531e5e3 from '../../../node_modules/@keystone-next/fields/types/password/views';
+import * as viewa766cc0f from '../../../node_modules/@keystone-next/fields/types/timestamp/views';
+
 const adminConfig = {};
 
-const fieldViews = {};
+const fieldViews = { viewfc930beb, view98a2b266, view3531e5e3, viewa766cc0f };
 
 const lazyMetadataQuery = {
   kind: 'Document',
@@ -146,6 +151,29 @@ const lazyMetadataQuery = {
             },
             loc: { start: 22, end: 234 },
           },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'authenticatedItem' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'User' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                      { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
         ],
       },
     },
@@ -157,7 +185,7 @@ export default function App({ Component, pageProps }) {
     <Core>
       <KeystoneProvider
         adminConfig={adminConfig}
-        adminMetaHash="cgdttq"
+        adminMetaHash="dex7we"
         fieldViews={fieldViews}
         lazyMetadataQuery={lazyMetadataQuery}
       >
